@@ -1,0 +1,13 @@
+﻿@model OnlineStore.Models.Cart.Cart
+
+<div class="navbar-right">
+    @Html.ActionLink("Checkout", "Index", "Cart",
+        new { returnUrl = Request.Url.PathAndQuery },
+        new { @class = "btn navbar-btn" })
+</div>
+<div class="navbar-text navbar-right">
+    <b>Your cart:</b>
+    @Model.Prods.Sum(x => x.Quantity) item(s),
+    @Model.TotalPrice().ToString("c")
+    <b>&nbsp;</b>
+</div>

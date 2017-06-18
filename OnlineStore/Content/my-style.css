@@ -1,0 +1,86 @@
+﻿body {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-image:url('images/cl1.jpg')
+}
+
+.bg-warning {
+    background: rgba(117, 84, 59, 0.7);
+    border: 0px
+}
+
+.bg-danger {
+    background: rgba(178, 156, 139, 0.7);
+    border: 0px
+}
+
+.bg-primary {
+    background: transparent;
+    border: 0px
+}
+
+.row, .panel {
+    background: transparent;
+    border: 0px
+}
+
+.panel-default > .panel-heading-custom {
+    background-image: none;
+    background-color: rgba(117, 84, 59, 0.7);
+    color: white;
+}
+
+.well {
+    background-color: rgba(178, 156, 139, 0.7);
+    border-color: rgba(178, 156, 139, 0.6);
+}
+
+.btn{
+    background-color: rgba(178, 156, 139, 0.7);
+    color: #000;
+}
+
+.btn-neg{
+    background-color: rgba(117, 84, 59, 0.7);
+    color: #000;
+}
+
+.btn-selected {
+    color: #fff !important;
+    background-color: rgba(117, 84, 59, 0.7) !important;
+    border-color: rgba(117, 84, 59, 0.7) !important;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn:active{
+    color: #fff !important;
+    background-color: rgba(117, 84, 59, 0.7) !important;
+    border-color: rgba(117, 84, 59, 0.7) !important;
+}
+
+.label {
+    background-color: rgba(117, 84, 59, 0.8);
+    color: #fff;
+}
+
+.navbar-custom {
+    padding-right: 2%;
+    background-color: rgba(117, 84, 59, 0.7);
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}

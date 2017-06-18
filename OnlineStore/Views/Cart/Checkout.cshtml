@@ -1,0 +1,36 @@
+﻿@model OnlineStore.Models.Shipping.ShippingDetails
+
+@{
+    ViewBag.Title = "Online Shopping Store: Checkout";
+}
+<div class="well">
+    <h3>Check out now</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <h4>Ship to</h4>
+        <div class="form-group">
+            <label>Name:</label>
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <h4>Address</h4>
+        foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+            if (property.PropertyName != "Name")
+            {
+                <div class="form-group">
+                    <label>
+                        @(property.DisplayName ?? property.PropertyName)
+                </label>
+                @Html.TextBox(property.PropertyName, null, new
+              {
+                  @class = "form-control"
+              })
+            </div>
+            }
+        }
+        <div class="text-center">
+            <input class="btn btn-selected" type="submit" value="Complete order" />
+        </div>
+    }
+</div>

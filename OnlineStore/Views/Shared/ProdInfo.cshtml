@@ -1,0 +1,19 @@
+﻿@model OnlineStore.Models.Product.Product
+
+    <div class="well">
+        <h4>
+            <strong><span>@Model.Name</span></strong>
+            <span class="pull-right label">$@Model.Price</span>
+        </h4>
+        
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            <div class="pull-right">
+                @Html.HiddenFor(x => x.ProductId)
+                @Html.Hidden("url", Request.Url.PathAndQuery)
+                <input type="submit" class="btn-selected" value="Add to cart">
+            </div>
+        }
+        <h5>@Model.Description</h5>
+    </div>
+

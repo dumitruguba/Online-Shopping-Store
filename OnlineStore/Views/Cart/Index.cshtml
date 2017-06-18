@@ -1,0 +1,55 @@
+﻿@model OnlineStore.Models.Cart.CartIndexView
+    
+@{
+    ViewBag.TiTle = "OnlineStore - Your Cart";
+}
+
+<h2>Your cart</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th class="bg-warning">Quantity</th>
+            <th class="bg-warning">Item</th>
+            <th class="text-right bg-warning">Price</th>
+            <th class="text-right bg-warning">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Prods)
+        {
+            <tr>
+                <td class="text-left bg-danger">@line.Quantity</td>
+                <td class="text-left bg-danger">@line.Product.Name</td>
+                <td class="text-right bg-danger">
+                    @line.Product.Price.ToString("c")
+                </td>
+                <td class="text-right bg-danger">
+                    @((line.Quantity * line.Product.Price).ToString("c"))
+                </td>
+                <td class="bg-primary">
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("ProductId", line.Product.ProductId)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn btn-sm btn-neg"
+                               type="submit" value="Remove" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right bg-danger">Total:</td>
+            <td class="text-right bg-danger">
+                @Model.Cart.TotalPrice().ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn" href="@Model.ReturnUrl">Continue shopping</a>
+    @Html.ActionLink("Checkout now", "Checkout", null,
+   new { @class = "btn" })
+</div>
+

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - OnlineStore</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/my-style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar navbar-custom" role="navigation">
+        <a class="navbar-brand" href="#">OnlineStore</a>
+        @Html.Action("Summary", "Cart")
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-lg-2">
+            @Html.Action("CategoryMenu", "Navigation")
+        </div>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-7">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

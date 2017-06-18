@@ -1,0 +1,16 @@
+﻿@model OnlineStore.Models.ViewProduct
+
+@{
+    ViewBag.Title = "Products";
+}
+
+
+@foreach (var product in Model.Prods)
+{
+    @Html.Partial("ProdInfo", product)
+}
+
+<div class="pull-right">
+    @Html.PageLinks(Model.PG, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
+
